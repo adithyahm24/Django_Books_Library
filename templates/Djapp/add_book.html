@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron" style="width: 50rem; margin: 0 auto; float: none; margin-bottom: 10px;">
+        <div class="container">
+            <h1 class="display-5"> Add Books</h1><br><br>
+            <form id="add_book" method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Upload</button>
+
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 style="width: 50rem; margin: 0 auto; float: none; margin-bottom: 10px;">Sign up</h1><br>
+        <div class="container" style="width: 50rem; margin: 0 auto; float: none; margin-bottom: 10px;">
+            <form class="site-form" action="." method="post">
+                <div class="container">
+                    {% csrf_token %}
+                    {% for i in form %}
+                        {{ i.label }} : {{ i }}
+                        <br><br>
+                    {% endfor %}
+                    {% for m in messages %}
+                        <p class="text-danger"> **{{ m }}**</p>
+                    {% endfor %}
+                    <a href="{% url 'home' %}" class="btn btn-danger btn-sm">Back</a> &nbsp&nbsp&nbsp
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                </div>
+            </form>
+            <br>
+            <div class="mt-4">
+                <div class="d-flex justify-content links">
+                    Have an account? <a href="{% url 'signin' %}" class="ml-2">login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
